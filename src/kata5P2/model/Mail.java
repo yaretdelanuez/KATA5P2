@@ -10,4 +10,8 @@ public class Mail {
     public String getDomain(){
         return mail.substring(mail.indexOf("@")+1);
     }
+    
+    public String getMail() {
+        return mail;
+    }
 }

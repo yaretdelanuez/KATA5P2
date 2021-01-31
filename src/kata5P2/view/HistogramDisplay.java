@@ -37,11 +37,18 @@ public class HistogramDisplay extends ApplicationFrame {
         return chart;
     }
     private DefaultCategoryDataset createDataset(){
-        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        DefaultCategoryDataset dataSet = new DefaultCategoryDataset();
+        int others = 0;
         for (String key : histogram.keySet()) {
-            dataset.addValue(histogram.get(key), "", key);
+            int value = histogram.get(key);
+            if(value > 1) {
+                dataSet.addValue(value, "", key);
+            } else {
+                others++;
+            }
         }
-        return dataset;
+        dataSet.addValue(others, "", "others");
+        return dataSet;
     }
     
 }
